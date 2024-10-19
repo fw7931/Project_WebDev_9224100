@@ -1,0 +1,23 @@
+body {
+    background-color: gray; /* for background color*/
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #ff0000; /* Dark background for the navbar */
+    overflow: hidden; /* Clear floats */
+}
+
+.navbar a {
+    float: left; /* Aligns links to the left */
+    display: block; /* Makes links clickable */
+    color: white; /* White text color */
+    text-align: center; /* Centers text */
+    padding: 14px 20px; /* Adds padding */
+    text-decoration: none; /* Removes underline */
+}
+
+.navbar a:hover {
+    background-color: #39ae8b; /* Light gray on hover */
+    color: black; /* Black text on hover */
+}
