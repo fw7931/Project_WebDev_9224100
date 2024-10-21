@@ -8,12 +8,18 @@ What i Wanted to do:
 5- Test a server : node server.js
 *****************
 3. Project Structure
-bash
-Copy code
 |-- public
 |   |-- index.html       # Front-end UI
 |   |-- style.css        # Front-end styling
 |   |-- script.js        # Front-end logic for fetching data and recommendations
+|   |-- images           # Folder for storing your images
+|       |-- summer.jpg
+|       |-- spring.jpg
+|       |-- fall.jpg
+|       |-- winter.jpg
+|       |-- rain.jpg
+|       |-- snow.jpg
 |-- server.js            # Node.js backend with Express
 |-- package.json         # Node.js dependencies
+
 *****************
