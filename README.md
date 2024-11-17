@@ -2,6 +2,7 @@ FF - 9224100
 *****************
 What i Wanted to do: 
 1- install node.js  from https://nodejs.org/en
+install ext : live server 
 2- Terminal command : npm init -y ( creates a package.json file)
 3- Terminal command : npm installl express axios (install express axios for server)
 4- Create a server.js file 
@@ -22,4 +23,8 @@ What i Wanted to do:
 |-- server.js            # Node.js backend with Express
 |-- package.json         # Node.js dependencies
 
-*****************
+*****-----
+ How To Run
+ in terminal : run server.js
+
+*****-----
