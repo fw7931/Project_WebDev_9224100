@@ -1,0 +1,21 @@
+@startuml ContainerDiagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+' Context and User Interaction
+Person(user, "User", "Uses a web browser to interact with the application")
+System_Boundary(weatherApp, "Weather Application") {
+    
+    Container(webApp, "Web Application", "HTML/JS/CSS", "User interface for input and display")
+    Container(server, "Node.js Server", "Node.js with Express", "Handles API requests and processes data")
+}
+
+System_Ext(api, "OpenWeatherMap API", "External API", "Provides weather and forecast data")
+
+' Relationships
+Rel(user, webApp, "Accesses via")
+
+Rel(webApp, server, "Sends weather and forecast requests")
+Rel(server, api, "Fetches weather and forecast data")
+@enduml
