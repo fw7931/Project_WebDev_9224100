@@ -25,7 +25,10 @@ install ext : live server
 
 *****-----
  How To Run
- in terminal : run server.js
- !!
+ 1 ) Goto following Dir  where project is saved  :~/Documents/02_Fatima/VS_Code/WebProject_Java/Project_WebDev_9224100$ 
+ 2) open terminal and run node server.js
+ 3) goto any WebBr. Chrome / Firefox etc !!
+ 4) address : http://127.0.0.1:3000/
+
 
 *****-----
