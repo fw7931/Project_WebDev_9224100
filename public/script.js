@@ -39,9 +39,9 @@ async function fetchForecast(city) {
     }
 
     const forecastData = await response.json();
-    const forecastList = forecastData.list.map(forecast => {
+    const forecastList = forecastData.list.map((forecast,index) => {
       const date = new Date(forecast.dt * 1000).toLocaleDateString();
-      return `${date}: ${forecast.main.temp}°C, ${forecast.weather[0].main}`;
+      return `Day${(index+1)}: ${forecast.main.temp}°C, ${forecast.weather[0].main}`;
     });
 
     document.getElementById('forecastInfo').innerHTML = `<h3>3-Day Forecast</h3><ul>${forecastList.map(item => `<li>${item}</li>`).join('')}</ul>`;
@@ -56,33 +56,33 @@ function recommendClothesAndActivities(temperature, condition) {
   let imageSrc = '';
   let imageSrc2 = '';
 
-  if (temperature > 25) {
+  if (temperature > 25.0) {
     recommendation = 'Wear light clothing, like shorts and a t-shirt.';
     activitySuggestion = 'Recommended: Go for a swim or a picnic!';
     imageSrc = 'images/temp_25.jpg';
-  } else if (temperature > 15) {
+    
+  } else if ((temperature > 15.0) && (temperature <= 25.0)) {
     recommendation = 'Wear a light jacket or sweater.';
     activitySuggestion = 'Recommended: A walk in the park or outdoor sports.';
     imageSrc = 'images/temp_15.jpg';
-  } else if (temperature > 5) {
+    
+  } else if ((temperature > 5.0) && (temperature <= 15.0)) {
     recommendation = "It's getting cold. Wear a warm coat, scarf, and gloves.";
     activitySuggestion = 'Recommended: Visit a cozy cafe or museum.';
     imageSrc = 'images/temp_5.jpg';
+    
   } else {
     recommendation = "Wear heavy winter clothing. Don't forget your hat and gloves!";
     activitySuggestion = 'Recommended: Stay indoors and enjoy a hot drink!';
     imageSrc = 'images/temp_0.jpg';
+    if (condition === 'Snow') {
+      recommendation += ' Wear snow boots and a thick coat.';
+      activitySuggestion = 'Recommended: Build a snowman or go skiing!';
+      imageSrc2 = 'images/snow.jpg';
+    }
   }
 
-  if (condition === 'Rain') {
-    recommendation += ' Also, carry an umbrella or wear a waterproof jacket.';
-    activitySuggestion = 'Recommended: Indoor activities like reading or gaming.';
-    imageSrc2 = 'images/rain.jpg';
-  } else if (condition === 'Snow') {
-    recommendation += ' Wear snow boots and a thick coat.';
-    activitySuggestion = 'Recommended: Build a snowman or go skiing!';
-    imageSrc2 = 'images/snow.jpg';
-  }
+  
 
   document.getElementById('clothingAdvice').innerText = recommendation;
   document.getElementById('activitySuggestion').innerText = activitySuggestion;
